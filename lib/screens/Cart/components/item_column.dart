@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shopping/models/Product.dart';
 import 'package:flutter_shopping/models/Saved_products.dart';
+import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-
 import '../../../constants.dart';
 import '../../details/components/cart_counter.dart';
 import '../../details/components/counter_with_fav_btn.dart';
@@ -24,16 +24,20 @@ class _ItemColumnState extends State<ItemColumn> {
   @override
   Widget build(BuildContext context) {
     Color heart_color = kTextLightColor;
-    return Container(
-      height: 155,
-      // decoration: const BoxDecoration(
-      //   border: Border(
-      //     top: BorderSide(width: 1.0, color: Color(0xFF000000)),
-      //     left: BorderSide(width: 1.0, color: Color(0xFF000000)),
-      //     right: BorderSide(width: 1.0, color: Color(0xFF000000)),
-      //     bottom: BorderSide(width: 1.0, color: Color(0xFF000000)),
-      //   ),
-      // ),
+    return Slidable(
+      // height: 155,
+      endActionPane: ActionPane(
+        motion: ScrollMotion(),
+        children: [
+          SlidableAction(
+            onPressed: donothing,
+            backgroundColor: Color(0xFFFE4A49),
+            foregroundColor: Colors.white,
+            icon: FontAwesomeIcons.trash,
+            label: 'Delete',
+          ),
+        ],
+      ),
       child: Column(
         children: [
           Row(
@@ -87,4 +91,6 @@ class _ItemColumnState extends State<ItemColumn> {
       ),
     );
   }
+
+  void donothing(BuildContext context) {}
 }
