@@ -7,5 +7,5 @@
 4. code editor
 
 ## how to build
-1. go to project directory then run "flutter pub get" in terminal //to get all pub library
+1. go to project directory then run "flutter pub get" in terminal (to get all pub library)
 2. run command "flutter run" 
