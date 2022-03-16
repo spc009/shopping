@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shopping/constants.dart';
+import 'package:flutter_shopping/models/Saved_products.dart';
 import 'package:flutter_shopping/screens/details/details_screen.dart';
 import 'package:flutter_shopping/screens/home/components/item_card.dart';
 
-import '../../../models/Product.dart';
+import '../../../models/Saved_products.dart';
 
 class Body extends StatelessWidget {
   @override
@@ -27,7 +28,7 @@ class Body extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: kDefaultPaddin),
             child: GridView.builder(
-                itemCount: products.length,
+                itemCount: saved.length,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                   mainAxisSpacing: kDefaultPaddin,
@@ -35,12 +36,12 @@ class Body extends StatelessWidget {
                   childAspectRatio: 0.75,
                 ),
                 itemBuilder: (context, index) => ItemCard(
-                      product: products[index],
+                      product: saved[index],
                       press: () => Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (context) => DetailsScreen(
-                              product: products[index],
+                              product: saved[index],
                             ),
                           )),
                     )),

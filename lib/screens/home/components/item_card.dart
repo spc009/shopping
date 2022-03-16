@@ -1,12 +1,10 @@
 import 'dart:async';
-import 'dart:convert';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_shopping/models/Product.dart';
-import 'package:flutter_shopping/models/Saved_products.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../constants.dart';
+import '../../../models/Saved_products.dart';
 
 class ItemCard extends StatefulWidget {
   final Product product;
@@ -30,12 +28,14 @@ class _ItemCardState extends State<ItemCard> {
     BuildContext dialogContext;
     timer = Timer(Duration(seconds: 1), () {
       setState(() {
-        if (heart_color == kTextLightColor) {
+        if (!saved.contains(widget.product)) {
           heart_color = Colors.red;
           alertMsg = 'Saved';
+          saved_Product(widget.product);
         } else {
           heart_color = kTextLightColor;
           alertMsg = 'Unsaved';
+          removed_Product(widget.product);
         }
         showDialog(
           context: context,
@@ -50,7 +50,7 @@ class _ItemCardState extends State<ItemCard> {
             );
           },
         );
-      }); 
+      });
     });
   }
 
@@ -92,7 +92,9 @@ class _ItemCardState extends State<ItemCard> {
                     child: IconButton(
                       icon: FaIcon(
                         FontAwesomeIcons.solidHeart,
-                        color: heart_color,
+                        color: (saved.contains(widget.product)
+                            ? Colors.red
+                            : kTextLightColor),
                       ),
                       //when press heart btn -> toggle heart color
                       onPressed: () {

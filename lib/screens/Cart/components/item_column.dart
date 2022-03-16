@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shopping/models/Cart.dart';
 import 'package:flutter_shopping/models/Product.dart';
 import 'package:flutter_shopping/models/Saved_products.dart';
+import 'package:flutter_shopping/screens/Cart/cart_screen.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../constants.dart';
 import '../../details/components/cart_counter.dart';
-import '../../details/components/counter_with_fav_btn.dart';
+import 'body.dart';
 
 class ItemColumn extends StatefulWidget {
   final Product product;
@@ -23,7 +25,6 @@ class ItemColumn extends StatefulWidget {
 class _ItemColumnState extends State<ItemColumn> {
   @override
   Widget build(BuildContext context) {
-    Color heart_color = kTextLightColor;
     return Slidable(
       // height: 155,
       endActionPane: ActionPane(
@@ -50,13 +51,13 @@ class _ItemColumnState extends State<ItemColumn> {
                   color: Colors.transparent,
                   // borderRadius: BorderRadius.circular(16),
                 ),
-                child: Hero(
-                  tag: "${widget.product.id}",
-                  child: Image.network(
-                    widget.product.image_url,
-                    fit: BoxFit.fill,
-                  ),
+                // child: Hero(
+                //   tag: "${widget.product.id}",
+                child: Image.network(
+                  widget.product.image_url,
+                  fit: BoxFit.fill,
                 ),
+                // ),
               ),
               SizedBox(width: 20),
               Expanded(
@@ -92,5 +93,12 @@ class _ItemColumnState extends State<ItemColumn> {
     );
   }
 
-  void donothing(BuildContext context) {}
+  void donothing(BuildContext context) {
+    carts_remove(widget.product);
+    Navigator.push(
+        context,
+        MaterialPageRoute(
+          builder: (context) => CartPage(),
+        ));
+  }
 }

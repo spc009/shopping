@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shopping/models/Product.dart';
 
+List<Product> saved = [];
+
 class saved_Product {
-  List<int> saved = [];
   saved_Product(Product product) {
-    saved.add(product.id);
+    saved.add(product);
+    print(saved.length);
+  }
+}
+
+class removed_Product {
+  removed_Product(Product product) {
+    saved.remove(product);
     print(saved.length);
   }
 }

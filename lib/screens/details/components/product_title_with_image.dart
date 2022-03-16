@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shopping/models/Product.dart';
+import 'package:flutter_shopping/screens/home/components/item_card.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../constants.dart';
@@ -67,15 +68,36 @@ class _ProductTitleWithImageState extends State<ProductTitleWithImage> {
                 child: IconButton(
                   icon: FaIcon(
                     FontAwesomeIcons.solidHeart,
-                    color: heart_color,
+                    color: (saved.contains(widget.product)
+                        ? Colors.red
+                        : kTextLightColor),
                   ),
                   onPressed: () {
-                    saved_Product(widget.product);
+                    String alertMsg;
+                    BuildContext dialogContext;
                     setState(() {
-                      if (heart_color == kTextLightColor)
+                      if (!saved.contains(widget.product)) {
                         heart_color = Colors.red;
-                      else
+                        alertMsg = 'Saved';
+                        saved_Product(widget.product);
+                      } else {
                         heart_color = kTextLightColor;
+                        alertMsg = 'Unsaved';
+                        removed_Product(widget.product);
+                      }
+                      showDialog(
+                        context: context,
+                        builder: (BuildContext context) {
+                          dialogContext = context;
+                          return AlertDialog(
+                            alignment: Alignment.center,
+                            title: Text(
+                              alertMsg,
+                              textAlign: TextAlign.center,
+                            ),
+                          );
+                        },
+                      );
                     });
                   },
                 ),

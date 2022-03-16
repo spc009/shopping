@@ -51,6 +51,7 @@ class _CartCounterState extends State<CartCounter> {
               press: () {
                 setState(() {
                   numOfItems++;
+                  
                 });
               }),
         ],

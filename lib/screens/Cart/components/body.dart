@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shopping/constants.dart';
+import 'package:flutter_shopping/models/Cart.dart';
 import 'package:flutter_shopping/screens/Cart/components/item_column.dart';
 import 'package:flutter_shopping/screens/details/details_screen.dart';
 
@@ -11,8 +12,8 @@ class Body extends StatelessWidget {
   @override
   double totalPrice() {
     double sum = 0;
-    for (int i = 0; i < products.length; i++) {
-      sum += products[i].price;
+    for (int i = 0; i < carts.length; i++) {
+      sum += carts[i].price;
     }
     return sum;
   }
@@ -37,16 +38,16 @@ class Body extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(),
             child: ListView.builder(
-                itemCount: products.length,
+                itemCount: carts.length,
                 itemBuilder: (context, index) {
-                  // Price.add(products[index].price);
+                  // Price.add(products[index].price) ;
                   return ItemColumn(
-                    product: products[index],
+                    product: carts[index],
                     press: () => Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) => DetailsScreen(
-                          product: products[index],
+                          product: carts[index],
                         ),
                       ),
                     ),
