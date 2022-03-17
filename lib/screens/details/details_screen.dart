@@ -16,7 +16,6 @@ class DetailsScreen extends StatelessWidget {
       backgroundColor: Colors.white,
       appBar: buildAppBar(context),
       body: Body(product: product),
-      bottomNavigationBar: BottomBar(),
     );
   }
 
