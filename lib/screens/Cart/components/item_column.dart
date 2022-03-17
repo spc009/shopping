@@ -5,7 +5,7 @@ import 'package:flutter_shopping/screens/Cart/cart_screen.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../constants.dart';
-import '../../details/components/cart_counter.dart';
+import 'cart_counter.dart';
 
 class ItemColumn extends StatefulWidget {
   final Product product;
@@ -48,13 +48,13 @@ class _ItemColumnState extends State<ItemColumn> {
                 decoration: BoxDecoration(
                   color: Colors.transparent,
                 ),
-                // child: Hero(
-                //   tag: "${widget.product.id}",
+                child: Hero(
+                  tag: "${widget.product.id}",
                 child: Image.network(
                   widget.product.image_url,
                   fit: BoxFit.fill,
                 ),
-                // ),
+                ),
               ),
               SizedBox(width: 20),
               Expanded(

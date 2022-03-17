@@ -11,7 +11,7 @@ class Body extends StatelessWidget {
   double totalPrice() {
     double sum = 0;
     for (int i = 0; i < carts.length; i++) {
-      sum += carts[i].price;
+      sum += carts[i].price * number[i];
     }
     return sum;
   }
@@ -30,7 +30,6 @@ class Body extends StatelessWidget {
                 .copyWith(fontWeight: FontWeight.bold),
           ),
         ),
-        // Categories(),
         SizedBox(height: 20),
         Expanded(
           child: Padding(
@@ -38,7 +37,6 @@ class Body extends StatelessWidget {
             child: ListView.builder(
                 itemCount: carts.length,
                 itemBuilder: (context, index) {
-                  // Price.add(products[index].price) ;
                   return ItemColumn(
                     product: carts[index],
                     press: () => update_number(),

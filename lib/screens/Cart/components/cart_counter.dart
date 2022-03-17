@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shopping/models/Product.dart';
+import 'package:flutter_shopping/screens/Cart/cart_screen.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../constants.dart';
+import '../../../models/Cart.dart';
 
 class CartCounter extends StatefulWidget {
   final Product product;
@@ -13,10 +15,11 @@ class CartCounter extends StatefulWidget {
 }
 
 class _CartCounterState extends State<CartCounter> {
-  // int numOfItems = carts.where((c) => c.id == widget.product.id).toList().length;
-  int numOfItems = 1;
   @override
   Widget build(BuildContext context) {
+    int index = carts.indexOf(widget.product);
+    int numOfItems = number[index];
+
     return Container(
       width: 155,
       // alignment: Alignment.bottomCenter,
@@ -37,7 +40,14 @@ class _CartCounterState extends State<CartCounter> {
             press: () {
               if (numOfItems > 1) {
                 setState(() {
-                  numOfItems--;
+                  carts_decrese(widget.product);
+                  numOfItems = number[index];
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CartPage(),
+                    ),
+                  );
                 });
               }
             },
@@ -55,7 +65,14 @@ class _CartCounterState extends State<CartCounter> {
               icon: FontAwesomeIcons.plus,
               press: () {
                 setState(() {
-                  numOfItems++;
+                  carts_add(widget.product);
+                  numOfItems = number[index];
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => CartPage(),
+                    ),
+                  );
                 });
               }),
         ],
