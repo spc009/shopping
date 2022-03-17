@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shopping/constants.dart';
 import 'package:flutter_shopping/models/Saved_products.dart';
 import 'package:flutter_shopping/screens/details/details_screen.dart';
-import 'package:flutter_shopping/screens/home/components/item_card.dart';
+import 'package:flutter_shopping/screens/Saved/components/item_card.dart';
 
 import '../../../models/Saved_products.dart';
 
