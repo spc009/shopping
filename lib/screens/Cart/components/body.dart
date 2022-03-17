@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shopping/constants.dart';
 import 'package:flutter_shopping/models/Cart.dart';
 import 'package:flutter_shopping/screens/Cart/components/item_column.dart';
-import 'package:flutter_shopping/screens/details/details_screen.dart';
 
-import '../../../models/Product.dart';
 import '../../Checkout/checkout_screen.dart';
 
 class Body extends StatelessWidget {
@@ -43,14 +41,7 @@ class Body extends StatelessWidget {
                   // Price.add(products[index].price) ;
                   return ItemColumn(
                     product: carts[index],
-                    press: () => Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => DetailsScreen(
-                          product: carts[index],
-                        ),
-                      ),
-                    ),
+                    press: () => update_number(),
                   );
                 }),
           ),
@@ -88,4 +79,6 @@ class Body extends StatelessWidget {
       ],
     );
   }
+
+  update_number() {}
 }

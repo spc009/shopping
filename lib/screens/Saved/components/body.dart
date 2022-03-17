@@ -22,7 +22,6 @@ class Body extends StatelessWidget {
                 .copyWith(fontWeight: FontWeight.bold),
           ),
         ),
-        // Categories(),
         SizedBox(height: 20),
         Expanded(
           child: Padding(

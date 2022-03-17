@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shopping/constants.dart';
-import 'package:flutter_shopping/models/Product.dart';
-import 'package:flutter_shopping/screens/details/details_screen.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 
 class Body extends StatelessWidget {
@@ -23,7 +21,6 @@ class Body extends StatelessWidget {
                 .copyWith(fontWeight: FontWeight.bold),
           ),
         ),
-        // Categories(),
         SizedBox(height: 20),
         Container(
           alignment: Alignment.center,

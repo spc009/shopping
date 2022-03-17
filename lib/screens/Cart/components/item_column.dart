@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shopping/models/Cart.dart';
 import 'package:flutter_shopping/models/Product.dart';
-import 'package:flutter_shopping/models/Saved_products.dart';
 import 'package:flutter_shopping/screens/Cart/cart_screen.dart';
 import 'package:flutter_slidable/flutter_slidable.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import '../../../constants.dart';
 import '../../details/components/cart_counter.dart';
-import 'body.dart';
 
 class ItemColumn extends StatefulWidget {
   final Product product;
@@ -49,7 +47,6 @@ class _ItemColumnState extends State<ItemColumn> {
                 width: 150,
                 decoration: BoxDecoration(
                   color: Colors.transparent,
-                  // borderRadius: BorderRadius.circular(16),
                 ),
                 // child: Hero(
                 //   tag: "${widget.product.id}",
@@ -81,7 +78,7 @@ class _ItemColumnState extends State<ItemColumn> {
                       ),
                     ),
                     SizedBox(height: 20),
-                    CartCounter(),
+                    CartCounter(widget.product)
                   ],
                 ),
               ),

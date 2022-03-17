@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_shopping/bottomBar.dart';
-import 'package:flutter_shopping/main.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:flutter_shopping/constants.dart';
 import 'package:flutter_shopping/screens/home/components/body.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class HomeScreen extends StatelessWidget {
   @override

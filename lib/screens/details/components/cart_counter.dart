@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_shopping/models/Product.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import '../../../constants.dart';
 
 class CartCounter extends StatefulWidget {
+  final Product product;
+
   @override
   _CartCounterState createState() => _CartCounterState();
+  CartCounter(this.product);
 }
 
 class _CartCounterState extends State<CartCounter> {
+  // int numOfItems = carts.where((c) => c.id == widget.product.id).toList().length;
   int numOfItems = 1;
   @override
   Widget build(BuildContext context) {
@@ -51,7 +56,6 @@ class _CartCounterState extends State<CartCounter> {
               press: () {
                 setState(() {
                   numOfItems++;
-                  
                 });
               }),
         ],

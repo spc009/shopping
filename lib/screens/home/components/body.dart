@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_shopping/constants.dart';
 import 'package:flutter_shopping/models/Product.dart';
 import 'package:flutter_shopping/screens/details/details_screen.dart';
+
 import 'item_card.dart';
 
 //Body of home screen
